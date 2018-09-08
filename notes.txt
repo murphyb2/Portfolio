@@ -1,0 +1,18 @@
+Models:
+    Splash page:
+        arrows on left and right of page to scroll through one full page image per portfolio section
+        each home page has one portfolio section
+    Portfolio section:
+        horizontal scrolling through image collection
+        each portfolio section belongs to one home page
+    Image:  
+        each image can belong to many portfolio sections
+
+Common items on all pages:
+    navigation bar in top right
+        clickable text for each group of sections (color film, b/w film, about etc.)
+    page title in bottom left in format PORTFOLIO\{current section title}
+    site name/my name in big header at top left of page
+    social links in top right of page
+
+What is a meta class?

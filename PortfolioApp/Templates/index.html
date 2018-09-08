@@ -1,0 +1,12 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>BRYAN MURPHY</h1>
+  <p>This be my portfolio yo!</p>
+  <h2>Dynamic content</h2>
+  <p>I could put some dynamic content here but i dont know what yet..</p>
+  <ul>
+    {% load static %}
+    <img src="{% static 'Portfolio/Images/cornyCamera.jpg' %}" alt="Corny Camera" style="width:600px;height:400px;"/>
+  </ul>
+{% endblock %}
