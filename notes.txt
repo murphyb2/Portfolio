@@ -8,6 +8,8 @@ Models:
     Image:  
         each image can belong to many portfolio sections
 
+    Model for each portfolio section: BW Film, color film, sports etc.
+
 Common items on all pages:
     navigation bar in top right
         clickable text for each group of sections (color film, b/w film, about etc.)
