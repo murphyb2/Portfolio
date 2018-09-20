@@ -18,74 +18,58 @@
 </head>
 <body>
   <div class="wrapper">
-    <!-- <div class="row">
-      {% block sidebar %}
-        <ul class="sidebar-nav">
-          <li><a href="{% url 'index' %}">Home</a></li>
-          <li><a href="">35mm</a></li>
-          <li><a href="">About</a></li>
+<!-- Header -->
+    <header>
+      <section class="title-card">
+          <h1>Bryan Murphy</h1>
+      </section>
+
+      <!-- Navigation Bar -->
+      <nav class="main-nav">
+        <ul>
+            <li><a href="">Home</a></li>
+            <!-- <li><a href="{% url 'index' %}">Home</a></li> -->
+            <li><a href="">35mm Color</a></li>
+            <li><a href="">35mm B/W</a></li>
+            <li><a href="">About</a></li>
         </ul>
-     {% endblock %}
-
-      <div class="col-sm-10 ">{% block content %}{% endblock %}</div>
-    </div> -->
-<!-- Top Container -->
-    <section class="title-card">
-      <!-- <header class="showcase"> -->
-        <h1>Bryan Murphy</h1>
-        <!-- <p>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quas, quaerat maxime aperiam quis architecto mollitia sapiente magni, iste quo nesciunt ratione nisi reprehenderit quae facere placeat nam voluptatem obcaecati distinctio culpa molestias. Nesciunt unde iusto consectetur facere recusandae dolorem similique!
-        </p> -->
-      <!-- </header> -->
-    </section>
-
-    <!-- Navigation Bar -->
-    <nav class="main-nav">
-      <ul>
-          <li><a href="">Home</a></li>
-          <li><a href="">35mm Color</a></li>
-          <li><a href="">35mm B/W</a></li>
-          <li><a href="">About</a></li>
-      </ul>
-    </nav>
-
+      </nav>
+    </header>
     
-<!-- Portfolio -->
-    <section class="portfolio">
-      <img src="https://source.unsplash.com/random/200x200" alt="">
-      <img src="https://source.unsplash.com/random/201x200" alt="">
-      <img src="https://source.unsplash.com/random/202x200" alt="">
-      <img src="https://source.unsplash.com/random/203x200" alt="">
-      <img src="https://source.unsplash.com/random/204x200" alt="">
-      <img src="https://source.unsplash.com/random/205x200" alt="">
-      <img src="https://source.unsplash.com/random/206x200" alt="">
-      <img src="https://source.unsplash.com/random/207x200" alt="">
-      <img src="https://source.unsplash.com/random/208x200" alt="">
-    </section>
+    <!-- Main Container -->
+    <div class="main">
+      <!-- Portfolio -->
+      <section class="portfolio">
+        <img src="https://source.unsplash.com/random/200x200" alt="">
+        <img src="https://source.unsplash.com/random/201x200" alt="">
+        <img src="https://source.unsplash.com/random/202x200" alt="">
+        <img src="https://source.unsplash.com/random/203x200" alt="">
+        <img src="https://source.unsplash.com/random/204x200" alt="">
+        <img src="https://source.unsplash.com/random/205x200" alt="">
+        <img src="https://source.unsplash.com/random/206x200" alt="">
+        <img src="https://source.unsplash.com/random/207x200" alt="">
+        <img src="https://source.unsplash.com/random/208x200" alt="">
+      </section>
 
-    <section class="boxes">
-      <div class="box">
-          <i class="far fa-envelope fa-3x"></i>
-          <h3>Analytics</h3>
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dignissimos, animi?</p>
-      </div>
-      <div class="box">
-          <i class="far fa-globe fa-3x"></i>
-          <h3>Marketing</h3>
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dignissimos, animi?</p>
-      </div>
-      <div class="box">
-          <i class="far fa-cog fa-3x"></i>
-          <h3>Development</h3>
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dignissimos, animi?</p>
-      </div>
-      <div class="box">
-          <i class="far fa-users fa-3x"></i>
-          <h3>Support</h3>
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dignissimos, animi?</p>
-      </div>
-    </section>
-
+      <!-- <section class="boxes">
+        <div class="box">
+            <i class="far fa-envelope fa-3x"></i>
+            <h4>Analytics</h4>
+        </div>
+        <div class="box">
+            <i class="far fa-globe fa-3x"></i>
+            <h4>Marketing</h3>
+        </div>
+        <div class="box">
+            <i class="far fa-cog fa-3x"></i>
+            <h4>Development</h4>
+        </div>
+        <div class="box">
+            <i class="far fa-users fa-3x"></i>
+            <h4>Support</h4>
+        </div>
+      </section> -->
+    </div>
     <!-- Footer -->
     <footer>
       <p>Bryan Murphy &copy; 2018</p>
