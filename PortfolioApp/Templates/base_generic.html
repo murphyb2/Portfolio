@@ -15,20 +15,21 @@
   {% load static %}
   <!-- <link rel="stylesheet" href="{% static 'vendor/css/normalize.css' %}"> -->
   <link rel="stylesheet" href="{% static 'portfolio/css/styles.css' %}">
+  <link rel="shortcut icon" href="{% static 'portfolio/Images/icons/favicon.png' %}">
 </head>
 <body>
   <div class="wrapper">
 <!-- Header -->
     <header>
       <section class="title-card">
-          <h1>Bryan Murphy</h1>
+          <h1><a href="{% url 'index' %}">Bryan Murphy </a></h1>
       </section>
 
       <!-- Navigation Bar -->
       <nav class="main-nav">
         <ul>
-            <li><a href="">Home</a></li>
-            <!-- <li><a href="{% url 'index' %}">Home</a></li> -->
+            <!-- <li><a href="">Home</a></li> -->
+            <li><a href="{% url 'index' %}">Home</a></li>
             <li><a href="">35mm Color</a></li>
             <li><a href="">35mm B/W</a></li>
             <li><a href="">About</a></li>
@@ -38,18 +39,8 @@
     
     <!-- Main Container -->
     <div class="main">
-      <!-- Portfolio -->
-      <section class="portfolio">
-        <img src="https://source.unsplash.com/random/200x200" alt="">
-        <img src="https://source.unsplash.com/random/201x200" alt="">
-        <img src="https://source.unsplash.com/random/202x200" alt="">
-        <img src="https://source.unsplash.com/random/203x200" alt="">
-        <img src="https://source.unsplash.com/random/204x200" alt="">
-        <img src="https://source.unsplash.com/random/205x200" alt="">
-        <img src="https://source.unsplash.com/random/206x200" alt="">
-        <img src="https://source.unsplash.com/random/207x200" alt="">
-        <img src="https://source.unsplash.com/random/208x200" alt="">
-      </section>
+        {% block content %}
+        {% endblock %}
 
       <!-- <section class="boxes">
         <div class="box">
@@ -70,6 +61,7 @@
         </div>
       </section> -->
     </div>
+
     <!-- Footer -->
     <footer>
       <p>Bryan Murphy &copy; 2018</p>
