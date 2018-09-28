@@ -53,8 +53,8 @@ header{
 .title-card{
     /* border: 2px solid black; */
     /* top right bottom left */
-    /* display: grid;
-    grid-template-areas: 'h1 h4'; */
+    display: grid;
+    grid-template-areas: 'h1 h2';
     margin: auto auto auto 0;
     font-size: 1.8rem;
 }
@@ -133,7 +133,7 @@ footer{
 
 /* Media Queries */
 
-@media(max-width: 900px){
+@media(max-width: 1000px){
     .title-card{
         /* border: 2px solid red; */
         margin: 0;
@@ -149,4 +149,10 @@ footer{
         margin: 0;
     }
 
+}
+
+@media(max-width: 530px){
+    .title-card{
+        grid-template-areas: 'h1' 'h2';
+    }
 }

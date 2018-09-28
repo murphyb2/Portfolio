@@ -40,8 +40,9 @@ class Home(models.Model):
     # Array holding the showcase clickable images to link to each portfolio section
     # showcase_images = []
 
-    title = models.CharField(default="Home", max_length=100)
-    # title = "home"
+    # title = models.CharField(default="Home", max_length=100)
+    title = "home"
+    image_gallery = models.ForeignKey(Image, on_delete=models.CASCADE, null=True)
 
     def __str__(self):
         return self.title

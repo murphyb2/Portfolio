@@ -1,19 +1,16 @@
 {% extends "base_generic.html" %}
 
-{% block content %}
-  <h2>/ {{Home.title}}</h2>
+{% block title %}<h2> / {{title}}</h2>{% endblock %}
 
+
+{% block content %}
   <!-- Portfolio -->
   <section class="portfolio">
       {% load static %}
-      <img src="{% static 'portfolio/Images/HotWaterBeach-BJM.JPG' %}" alt="">
-      <img src="{% static 'portfolio/Images/BK-Bridge.JPG' %}" alt="">
-      <!-- <img src="https://source.unsplash.com/random/300x200" alt=""> -->
-      <!-- <img src="https://source.unsplash.com/random/300x200" alt=""> -->
-      <!-- <img src="https://source.unsplash.com/random/300x200" alt=""> -->
-      <!-- <img src="https://source.unsplash.com/random/300x200" alt=""> -->
-      <!-- <img src="https://source.unsplash.com/random/300x200" alt=""> -->
-      <!-- <img src="https://source.unsplash.com/random/300x200" alt=""> -->
-      <!-- <img src="https://source.unsplash.com/random/300x200" alt=""> -->
+      {% for image in img_gallery %}
+        <img src="{% static '{url media}' %}" alt="">
+      {% endfor %}
+      {% comment %} <img src="{% static 'portfolio/Images/HotWaterBeach-BJM.JPG' %}" alt="">
+      <img src="{% static 'portfolio/Images/BK-Bridge.JPG' %}" alt=""> {% endcomment %}
     </section>
 {% endblock %}
