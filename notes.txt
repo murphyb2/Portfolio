@@ -9,6 +9,7 @@ Models:
         each image can belong to many portfolio sections
 
     Model for each portfolio section: BW Film, color film, sports etc.
+    In views, filter image model on portfolio section property to decide which images get sent to front end
 
 Common items on all pages:
     navigation bar in top right

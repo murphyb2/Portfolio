@@ -7,10 +7,10 @@
   <!-- Portfolio -->
   <section class="portfolio">
       {% load static %}
-      {% for image in img_gallery %}
-        <img src="{% static '{url media}' %}" alt="">
-      {% endfor %}
-      {% comment %} <img src="{% static 'portfolio/Images/HotWaterBeach-BJM.JPG' %}" alt="">
-      <img src="{% static 'portfolio/Images/BK-Bridge.JPG' %}" alt=""> {% endcomment %}
+      {% for image in img_gal %}
+        <img src="{{ image.picture.url }}" alt="{{ image.alt_text }}">
+      {% endfor %} 
+      {% comment %} <img src="{% static 'portfolio/Images/HotWaterBeach-BJM.JPG' %}" alt=""> {% endcomment %}
+      {% comment %} <img src="{% static 'portfolio/Images/BK-Bridge.JPG' %}" alt="">  {% endcomment %}
     </section>
 {% endblock %}
