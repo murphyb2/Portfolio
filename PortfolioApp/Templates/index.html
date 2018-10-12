@@ -8,9 +8,9 @@
   <section class="portfolio">
       {% load static %}
       {% for image in img_gal %}
-        <img src="{{ image.picture.url }}" alt="{{ image.alt_text }}">
+        <a href="{% url image.portfolio_section %}">
+          <img src="{{ image.picture.url }}" alt="{{ image.alt_text }}">
+        </a>
       {% endfor %} 
-      {% comment %} <img src="{% static 'portfolio/Images/HotWaterBeach-BJM.JPG' %}" alt=""> {% endcomment %}
-      {% comment %} <img src="{% static 'portfolio/Images/BK-Bridge.JPG' %}" alt="">  {% endcomment %}
     </section>
 {% endblock %}

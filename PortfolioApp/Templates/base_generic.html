@@ -30,9 +30,10 @@
       <nav class="main-nav">
         <ul>
             <li><a href="{% url 'index' %}">Home</a></li>
-            <li><a href="">35mm Color</a></li>
-            <li><a href="">35mm B/W</a></li>
-            <li><a href="">About</a></li>
+            <li><a href="{% url 'colorFilm' %}">35mm Color</a></li>
+            <li><a href="{% url 'bwFilm' %}">35mm B/W</a></li>
+            <li><a href="{% url 'music' %}">Music</a></li>
+            <li><a href="{% url 'about' %}">About</a></li>
         </ul>
       </nav>
     </header>

@@ -8,8 +8,9 @@ class Image(models.Model):
     # ADD VALIDATION TO ENSURE THAT ASPECT RATIO IS 3x2 or 2x3 IF USING AS A HOME PAGE SHOWCASE IMAGE!!!!! 
     PORTFOLIO_SECTIONS=[
         ('home', 'Home'),
-        ('35mm color', '35mm Color'),
-        ('35mm bw', '35mm BW'),
+        ('colorFilm', '35mm Color'),
+        ('bwFilm', '35mm BW'),
+        ('music', 'Music'),
         ('prof_pic', 'Profile Picture'),
     ]
 
@@ -36,16 +37,3 @@ class Image(models.Model):
 
     def is_landscape(self):
         return self.width > self.height
-
-# class Home(models.Model):
-#     # Model representing the home page
-
-#     # Array holding the showcase clickable images to link to each portfolio section
-#     # showcase_images = []
-
-#     # title = models.CharField(default="Home", max_length=100)
-#     title = "home"
-#     image_gallery = models.ForeignKey(Image, on_delete=models.CASCADE, null=True)
-
-#     def __str__(self):
-#         return self.title
