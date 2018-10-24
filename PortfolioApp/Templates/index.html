@@ -3,14 +3,36 @@
 {% block title %}<h2> / {{title}}</h2>{% endblock %}
 
 
-{% block content %}
+{% block home-slider %}
   <!-- Portfolio -->
-  <section class="portfolio">
+  <section class="home-slider">
+    
+    <div id="arrow-left" class="arrow"></div>
+
+    <div id="slider">
       {% load static %}
+    
       {% for image in img_gal %}
-        <a href="{% url image.portfolio_section %}">
-          <img src="{{ image.picture.url }}" alt="{{ image.alt_text }}">
-        </a>
-      {% endfor %} 
-    </section>
+      <a href="{% url image.portfolio_section %}">
+        <div class="slide slide{{ image.id }} ">
+            
+            <style>
+              .slide{{ image.id }}{
+                background-image: url({{ image.picture.url }});
+              }
+            </style>
+            
+            <div class="slide-content">
+              <span>{{ image.portfolio_section }}</span>
+            </div>
+        </div>
+      </a>
+      {% endfor %}
+
+    </div>
+
+    <div id="arrow-right" class="arrow"></div>
+    <!-- Run this script at the end to allow the page to fully load first -->
+    <script src="{% static 'portfolio/js/main.js' %}"></script>
+  </section>
 {% endblock %}
