@@ -16,7 +16,7 @@ body{
     display: flex;
     flex-direction: column;
     background: #fff;
-    margin: 30px 50px;
+    margin: 0;
     line-height:  1.4;
     min-height: 100vh;
 }
@@ -36,19 +36,17 @@ img{
     max-width: 100%;
 }
 
-.wrapper {
-    display: grid;
-    grid-gap: 20px;
-    grid-template-columns: 1fr;
-    grid-template-areas: 'header' 'portfolio' 'boxes' 'footer';
-}
-
 /* Header */
 header{
     display: grid;
     grid-template-areas: 'title-card main-nav';
     text-transform: uppercase;
     font-size: 1.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    margin-right: 1vw;
+    margin-left: 1vw;
 }
 .title-card{
     /* border: 2px solid black; */
@@ -60,7 +58,7 @@ header{
 }
 h1 a{
     text-decoration: none;
-    color: inherit;
+    color: var(--light);
 }
 
 /* Navigation */
@@ -109,15 +107,14 @@ h1 a{
 }
 
 /* Portfolio Images */
-a, a:active, a:focus{
-    outline: none; /* Works in Firefox, Chrome, IE8 and above */ 
-}
 .portfolio{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     grid-gap: 20px;
     /* border: 2px solid black; */
     border: 0;
+    margin-right: 1vw;
+    margin-left: 1vw;
 }
 .portfolio img{
     width: 100%;
@@ -127,12 +124,82 @@ a, a:active, a:focus{
     border: 0;
 }
 
+/* Home Slider */
+#slider,
+.home-slider,
+.slide-content {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100vh;
+    overflow-y: hidden;
+    
+}
+.home-slider {
+    position: fixed;
+    top: 0;
+}
+.slide {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.slide-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+#slider a {
+    text-decoration: none;
+}
+.slide-content span {
+    font-size: 5rem;
+    color: var(--dark);
+    background: var(--primary);
+    padding: 0.8rem; 
+    text-align: center;
+    text-transform: uppercase;
+    box-shadow: var(--shadow);
+    position: fixed;
+    left: 2vw;
+    bottom: 2vh;
+    font-size: 1.5em;
+    box-shadow: var(--shadow);
+}
+
+.arrow {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: 0;
+    height: 0;
+    border-style: solid;
+}
+  
+#arrow-left {
+    border-width: 30px 40px 30px 0;
+    border-color: transparent #fff transparent transparent;
+    left: 0;
+    margin-left: 30px;
+}
+
+#arrow-right {
+    border-width: 30px 0 30px 40px;
+    border-color: transparent transparent transparent #fff;
+    right: 0;
+    margin-right: 30px;
+}
+
 /* Footer  */
 footer{
     margin-top: 2rem;
-    color: var(--dark);
+    color: var(--light);
     text-align: center;
     padding: 1rem;
+    position: sticky;
+    bottom: 0;
     /* border: 2px solid black; */
 }
 
