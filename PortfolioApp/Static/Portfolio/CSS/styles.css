@@ -156,7 +156,17 @@ h1 a{
 }
 .slide-content span {
     font-size: 5rem;
-    color: #fff;
+    color: var(--dark);
+    background: var(--primary);
+    padding: 0.8rem; 
+    text-align: center;
+    text-transform: uppercase;
+    box-shadow: var(--shadow);
+    position: fixed;
+    left: 2vw;
+    bottom: 2vh;
+    font-size: 1.5em;
+    box-shadow: var(--shadow);
 }
 
 .arrow {
