@@ -8,7 +8,25 @@
   <section class="portfolio">
       {% load static %}
       {% for image in img_gal %}
-        <img src="{{ image.picture.url }}" alt="{{ image.alt_text }}">
+        <img id="modal-btn" onclick="openModal({{ forloop.counter }})" src="{{ image.picture.url }}" alt="{{ image.alt_text }}">
       {% endfor %} 
-    </section>
+
+      <div class="modal-window">
+          <!-- Load the images again for the modal slider. CSS/JS will hide it until
+          an image is clicked. -->
+          <span class="close">&times;</span>
+          <div id="arrow-left" class="arrow"></div>
+          {% for image in img_gal %}
+            <img class="slide" src="{{ image.picture.url }}" alt="{{ image.alt_text }}">
+          {% endfor %}
+          
+          <div id="arrow-right" class="arrow"></div>
+      </div>
+      
+  </section>
+  
+    
+<!-- Run this script at the end to allow the page to fully load first -->
+<script src="{% static 'portfolio/js/main.js' %}"></script>
+<script src="{% static 'portfolio/js/modal.js' %}"></script>
 {% endblock %}

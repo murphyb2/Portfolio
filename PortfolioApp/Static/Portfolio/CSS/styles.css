@@ -44,7 +44,7 @@ header{
     font-size: 1.5rem;
     position: sticky;
     top: 0;
-    z-index: 100;
+    z-index: 50;
     margin-right: 1vw;
     margin-left: 1vw;
 }
@@ -115,13 +115,14 @@ h1 a{
     border: 0;
     margin-right: 1vw;
     margin-left: 1vw;
+    
 }
 .portfolio img{
     width: 100%;
     box-shadow: var(--shadow);
-    padding: (3/2) * 100%;
     overflow: hidden;
     border: 0;
+    /* outline: white dashed 0px; */
 }
 
 /* Home Slider */
@@ -190,6 +191,51 @@ h1 a{
     border-color: transparent transparent transparent #fff;
     right: 0;
     margin-right: 30px;
+}
+
+/* Modal Gallery */
+.modal-window{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 60;
+    /* Hide all the images until the smaller one is clicked */
+    display: none;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+}
+
+#modal-btn:hover {
+    cursor: pointer;
+}
+
+.modal-window img {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 65%;
+    /* Just in case the screen is huge we dont want the image
+    extending down past the edge */
+    max-height: 90%;
+}
+
+.close{
+    color: #ccc;
+    justify-self: center;
+    align-self: center;
+    font-size: 4rem;
+    color: #fff;
+    grid-column: 5;
+}
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 /* Footer  */
