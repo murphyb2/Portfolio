@@ -9,6 +9,16 @@
   <link href="https://fonts.googleapis.com/css?family=Oswald:700" rel="stylesheet" >
   <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"> </script>
  
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-128907823-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-128907823-1');
+  </script>
+
   {% load static %}
   <!-- <link rel="stylesheet" href="{% static 'vendor/css/normalize.css' %}"> -->
   <link rel="stylesheet" href="{% static 'portfolio/css/styles.css' %}">
@@ -25,8 +35,7 @@
     <!-- Header -->
     <header>
       <section class="title-card">
-          <h1><a href="{% url 'index' %}">Bryan Murphy</a></h1>
-          {% block title %}{% endblock %}
+          <h1><a href="{% url 'index' %}">Bryan Murphy</a> / {% block title %}{% endblock %}</h1>
       </section>
 
       <!-- Navigation Bar -->
@@ -71,7 +80,7 @@
 
     <!-- Footer -->
     <footer>
-      <p>Bryan Murphy &copy; 2018</p>
+      <div class="footer-text">Bryan Murphy &copy; 2018</div>
     </footer>
   {% comment %} </div> {% endcomment %}
   <!-- Wrapper End -->

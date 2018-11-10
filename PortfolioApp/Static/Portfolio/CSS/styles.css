@@ -1,9 +1,10 @@
 /* CSS Variables */
 :root{
-    --primary: #ddd;
+    --primary: rgb(255, 255, 255);
     --dark: #333;
     --light: #fff;
     --shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
+    --modal-duration: .5s;
 }
 
 html{
@@ -22,6 +23,7 @@ body{
 }
 .main{
     flex: 1;
+    margin: auto 2vw;
 }
 
 .btn{
@@ -45,20 +47,34 @@ header{
     position: sticky;
     top: 0;
     z-index: 50;
-    margin-right: 1vw;
+    margin-right: 2vw;
     margin-left: 1vw;
+    
 }
 .title-card{
     /* border: 2px solid black; */
     /* top right bottom left */
     display: grid;
     grid-template-areas: 'h1 h2';
-    margin: auto auto auto 0;
-    font-size: 1.8rem;
+    margin: 0 auto 0 0;
+    padding: 1vh 1vw; 
+    
 }
+h1, h2{
+    background-color: var(--primary);
+    box-shadow: var(--shadow);
+}
+h1{
+    padding: 0.8rem;
+}
+
 h1 a{
     text-decoration: none;
-    color: var(--light);
+    color: var(--dark);
+    /* Link is only in the name, not page title. So adjust padding
+    so it doesnt add extra in the middle of the box. */
+    padding-bottom: 0.8rem;
+    padding-top: 0.8rem;    
 }
 
 /* Navigation */
@@ -156,13 +172,11 @@ h1 a{
     text-decoration: none;
 }
 .slide-content span {
-    font-size: 5rem;
     color: var(--dark);
     background: var(--primary);
     padding: 0.8rem; 
     text-align: center;
     text-transform: uppercase;
-    box-shadow: var(--shadow);
     position: fixed;
     left: 2vw;
     bottom: 2vh;
@@ -181,16 +195,22 @@ h1 a{
   
 #arrow-left {
     border-width: 30px 40px 30px 0;
-    border-color: transparent #fff transparent transparent;
+    border-color: transparent var(--light) transparent transparent;
     left: 0;
     margin-left: 30px;
+}
+#arrow-left:hover{
+    border-color: transparent var(--dark) transparent transparent;
 }
 
 #arrow-right {
     border-width: 30px 0 30px 40px;
-    border-color: transparent transparent transparent #fff;
+    border-color: transparent transparent transparent var(--light);
     right: 0;
     margin-right: 30px;
+}
+#arrow-right:hover{
+    border-color: transparent transparent transparent var(--dark);
 }
 
 /* Modal Gallery */
@@ -200,12 +220,16 @@ h1 a{
     left: 0;
     height: 100%;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.8);
     z-index: 60;
     /* Hide all the images until the smaller one is clicked */
     display: none;
+    /* probably dont need to define so many boxes now that the image and
+    arrows are centered in the screen with fixed position and 50% margins */
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: repeat(5, 1fr);
+    animation-name: modalopen;
+    animation-duration: var(--modal-duration);
 }
 
 #modal-btn:hover {
@@ -238,15 +262,42 @@ h1 a{
   cursor: pointer;
 }
 
+/* About Page */
+.about {
+    display: grid;
+    grid-template-areas: 'img' 'p';
+    grid-gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    margin-right: 1vw;
+    margin-left: 1vw;
+}
+
 /* Footer  */
 footer{
-    margin-top: 2rem;
     color: var(--light);
     text-align: center;
-    padding: 1rem;
+    padding: 2vh 2vw;
     position: sticky;
     bottom: 0;
     /* border: 2px solid black; */
+}
+.footer-text{
+    background-color: var(--primary);
+    box-shadow: var(--shadow);
+    color: var(--dark);
+    width: 15%;
+    padding: .5rem;
+    margin: 0 auto;
+}
+
+/* Keyframes */
+@keyframes modalopen {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 /* Media Queries */
