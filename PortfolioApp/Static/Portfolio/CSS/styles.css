@@ -109,17 +109,39 @@ h1 a{
     /* border: 2px solid black; */
 }
 
-/* Social Boxes (not implemented yet) */
-.boxes{
-    display: grid;
-    grid-gap: 20px;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+/* Social Icons */
+
+@font-face {
+    font-family: 'Genericons';
+    src: url("fonts/genericons/genericons-regular-webfont.woff") format("woff"), 
+    url("fonts/genericons/genericons-regular-webfont.eot") format("truetype");
 }
-.box{
-    background: var(--primary);
-    text-align: center;
-    padding: 1.1rem 1.1rem;
-    box-shadow: var(--shadow);
+.buttons{
+    display: grid;
+    grid-template-columns: repeat(3, minmax(32px, 1fr));
+    float: right;
+    justify-items: center;
+    grid-gap: 20px;
+}
+.social{
+    width: 2rem;
+    font: normal 30px Genericons;
+    z-index: 70;
+    text-decoration: none;
+}
+.social a{
+    text-decoration: none;
+    justify-self: center;
+    padding: 25%;
+}
+.linkedin a:before {
+    content: '\f208';
+}
+.instagram a:before {
+    content: '\f215';
+}
+.github a:before {
+    content: '\f200';
 }
 
 /* Portfolio Images */
@@ -150,7 +172,6 @@ h1 a{
     width: 100%;
     height: 100vh;
     overflow-y: hidden;
-    
 }
 .home-slider {
     position: fixed;
