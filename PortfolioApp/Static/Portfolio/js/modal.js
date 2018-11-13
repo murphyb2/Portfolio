@@ -13,7 +13,7 @@ function openModal(count) {
 
     // forloop.counter starts at 1 so pass 1 less than count to startSlide
     current = count - 1;
-    console.log(current);
+    // console.log(current);
     startSlide();
 }
 

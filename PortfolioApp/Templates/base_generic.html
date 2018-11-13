@@ -37,6 +37,9 @@
 
       <!-- Navigation Bar -->
       <nav class="main-nav">
+        <div class="menu-button">
+            <a></a>
+        </div>
         <ul>
             <li><a href="{% url 'index' %}">Home</a></li>
             <li><a href="{% url 'colorFilm' %}">35mm Color</a></li>
@@ -44,7 +47,7 @@
             <li><a href="{% url 'music' %}">Music</a></li>
             <li><a href="{% url 'about' %}">About</a></li>
         </ul>
-        <div class="buttons">
+        <div class="social-buttons">
             <div class="social linkedin">
                 <div alt="f208" class="genericon genericon-linkedin-alt">
                     <a href="https://www.linkedin.com/in/bryan-murphy-664020a0" target="_blank"></a>
@@ -61,9 +64,8 @@
                 </div>
             </div>
         </div> 
-    
       </nav>
-      
+
       </header>
     
     <!-- Place the image slider here so it takes up the whole screen -->
@@ -81,6 +83,7 @@
     <footer>
       <div class="footer-text">Bryan Murphy &copy; 2018</div>
     </footer>
-  
+    <!-- Let the entire page load then load JS scripts -->
+    <script src="{% static 'portfolio/js/menuDropdown.js' %}"></script>
 </body>
 </html>
