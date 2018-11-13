@@ -37,3 +37,9 @@ class Image(models.Model):
 
     def is_landscape(self):
         return self.width > self.height
+
+class About(models.Model):
+    prof_pic = models.ForeignKey(Image, on_delete=models.SET_NULL, null=True)
+    body = models.TextField()
+    def __str__(self):
+        return ("About Page")

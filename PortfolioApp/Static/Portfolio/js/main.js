@@ -16,7 +16,7 @@ function reset() {
 // Init slider
 function startSlide() {
   reset();
-  sliderImages[0].style.display = "block";
+  sliderImages[current].style.display = "block";
 }
 
 // Show prev

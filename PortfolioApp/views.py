@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from PortfolioApp.models import Image
+from PortfolioApp.models import Image, About
 
 def index(request):
     """View function for home page of site."""
@@ -69,11 +69,12 @@ def about(request):
 
     # Filter all the images in the database for only those that are assigned to 
     # be a profile
-    img_gal = Image.objects.filter(portfolio_section='prof_pic')
+    # profile_pic = Image.objects.filter(portfolio_section='prof_pic')
+    content = About.objects.all()
     
     context = {
         'title': 'About',
-        'img_gal': img_gal,
+        'content': content,
     }
 
     # Render the HTML template about.html with the data in the context variable
