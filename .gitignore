@@ -2,3 +2,5 @@
 
 *.bak
 
+# Database
+*.sqlite3
