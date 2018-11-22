@@ -136,8 +136,8 @@ db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
 
 # AWS S3 Configuration
-AWS_ACCESS_KEY_ID = 'AKIAI45FQ6CXPX57B7PQ'
-AWS_SECRET_ACCESS_KEY = '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'
+AWS_ACCESS_KEY_ID = ''
+AWS_SECRET_ACCESS_KEY = ''
 AWS_STORAGE_BUCKET_NAME = 'murmuring-springs-65033-assets'
 AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
 AWS_S3_OBJECT_PARAMETERS = {
