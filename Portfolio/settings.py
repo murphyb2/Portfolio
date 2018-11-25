@@ -150,8 +150,8 @@ STATICFILES_DIRS = [
 ]
 STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
 STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-DEFAULT_FILE_STORAGE = 'Portfolio.storage_backends.MediaStorage'
-print(STATIC_URL)
+DEFAULT_FILE_STORAGE = 'Portfolio.storage_backends.MediaStorage' 
+print("STATIC_URL -> " + STATIC_URL)
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
