@@ -151,7 +151,8 @@ STATICFILES_DIRS = [
 ]
 STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
 STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-DEFAULT_FILE_STORAGE = 'Portfolio.storage_backends.MediaStorage' 
+# DEFAULT_FILE_STORAGE = 'Portfolio.storage_backends.MediaStorage' 
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 # print("STATIC_URL -> " + STATIC_URL)
 
 # Static files (CSS, JavaScript, Images)
@@ -159,8 +160,9 @@ DEFAULT_FILE_STORAGE = 'Portfolio.storage_backends.MediaStorage'
 
 # STATIC_URL = '/static/'
 # STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+STATIC_ROOT = 'static/'
 
 # MEDIA_URL = '/media/'
 # MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
-
+MEDIA_ROOT = 'media/'
 # STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
