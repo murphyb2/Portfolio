@@ -9,7 +9,7 @@
     <div id="arrow-left" class="arrow"></div>
 
     <div id="slider">
-      {% load static %}
+      {% load static from staticfiles %}
     
       {% for image in img_gal %}
       <a href="{% url image.portfolio_section %}">
