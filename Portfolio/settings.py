@@ -142,7 +142,8 @@ AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
 AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_STORAGE_BUCKET_NAME')
 AWS_REGION = os.environ.get('AWS_REGION')
 AWS_S3_CUSTOM_DOMAIN = 's3-%s.amazonaws.com/%s' % (AWS_REGION, AWS_STORAGE_BUCKET_NAME)
-AWS_S3_OBJECT_PARAMETERS = {
+AWS_HEADERS = {
+    'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
     'CacheControl': 'max-age=86400',
 }
 AWS_LOCATION = 'static'
