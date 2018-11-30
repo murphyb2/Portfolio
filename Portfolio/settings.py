@@ -142,7 +142,7 @@ if (DEBUG != True):
     AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
     AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_STORAGE_BUCKET_NAME')
     AWS_REGION = os.environ.get('AWS_REGION')
-    AWS_S3_CUSTOM_DOMAIN = '%s.s3%s.amazonaws.com/' % (AWS_STORAGE_BUCKET_NAME, AWS_REGION)
+    AWS_S3_CUSTOM_DOMAIN = '%s.s3%s.amazonaws.com' % (AWS_STORAGE_BUCKET_NAME, AWS_REGION)
     AWS_HEADERS = {
         'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
         'CacheControl': 'max-age=86400',
