@@ -1,6 +1,6 @@
 # Photo Portfolio
 
-This web app showcases my portfolio of photographs. It implements an administrator interface to upload images and update the about page. 
+This web app showcases my portfolio of photographs. It implements an administrator interface to upload and display images as well as update the about page. 
 
 ## Getting Started
 
