@@ -15,18 +15,22 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 # BASE_DIR should be the same folder as manage.py
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-# print (BASE_DIR)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', '((iz8&@^y2)4ny$!-x5t1+fygk%s#rk8xm28pcq9rd9)74xizg')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = bool(os.environ.get('DJANGO_DEBUG', True))
+DEBUG = bool(os.environ.get('DJANGO_DEBUG'))
 
-ALLOWED_HOSTS = ['murmuring-springs-65033.herokuapp.com']
+ALLOWED_HOSTS = ['murmuring-springs-65033.herokuapp.com', 
+    '127.0.0.1',
+    'portfolio-env-1.mvar5mq3bd.us-east-1.elasticbeanstalk.com',
+    'www.bryan-murphy.com',
+    'bryan-murphy.com'
+]
 
 
 # Application definition
@@ -44,7 +48,6 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    # 'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -80,22 +83,27 @@ WSGI_APPLICATION = 'Portfolio.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+if 'RDS_HOSTNAME' in os.environ:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql', # mySQL
+            'NAME': os.environ['RDS_DB_NAME'],  # Use AWS RDS for MySQL service
+            'USER': os.environ['RDS_USERNAME'],
+            'PASSWORD': os.environ['RDS_PASSWORD'],
+            'HOST': os.environ['RDS_HOSTNAME'],
+            'PORT': os.environ['RDS_PORT'],
+        }
     }
-}
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'portfolio',
-#         'USER': 'root',
-#         'PASSWORD': '',
-#         'PORT': ''
-#     }
-# }
+else:    
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': 'portfolio',
+            'USER': 'root',
+            'PASSWORD': '',
+            'PORT': '',
+        }
+    }
 
 
 # Password validation
@@ -130,43 +138,22 @@ USE_L10N = True
 
 USE_TZ = True
 
-# Heroku: Update database configuration from $DATABASE_URL.
-import dj_database_url
-db_from_env = dj_database_url.config(conn_max_age=500)
-DATABASES['default'].update(db_from_env)
+# # Static files (CSS, JavaScript, Images)
+# AWS S3 Configuration
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'PortfolioApp/static'),
+]
 
-if (DEBUG != True):
-    # AWS S3 Configuration
-    AWS_DEFAULT_ACL = 'bucket-owner-full-control'
-    AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
-    AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
-    AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_STORAGE_BUCKET_NAME')
-    AWS_REGION = os.environ.get('AWS_REGION')
-    # AWS_S3_CUSTOM_DOMAIN = '%s.s3%s.amazonaws.com' % (AWS_STORAGE_BUCKET_NAME, AWS_REGION)
-    AWS_S3_CUSTOM_DOMAIN = '%s' % (AWS_REGION)
-    AWS_HEADERS = {
-        'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
-        'CacheControl': 'max-age=86400',
-    }
-    AWS_LOCATION = 'static'
+AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_STORAGE_BUCKET_NAME')
+AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
 
-    STATICFILES_DIRS = [
-        os.path.join(BASE_DIR, 'PortfolioApp/static'),
-    ]
-    STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
-    STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-    # DEFAULT_FILE_STORAGE = 'Portfolio.storage_backends.MediaStorage' 
-    DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-    # print("STATIC_URL -> " + STATIC_URL)
+AWS_S3_OBJECT_PARAMETERS = {
+    'CacheControl': 'max-age=86400',
+}
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/2.0/howto/static-files/
-
-# STATIC_URL = '/static/'
-# STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
-STATIC_ROOT = 'static/'
-
-# MEDIA_URL = '/media/'
-# MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
-MEDIA_ROOT = 'media/'
-# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+AWS_LOCATION = 'static'
+STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+DEFAULT_FILE_STORAGE = 'Portfolio.storage_backends.MediaStorage' 
