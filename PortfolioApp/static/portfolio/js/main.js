@@ -2,8 +2,8 @@
 // Handles the image slider on the home page
 
 let sliderImages = document.querySelectorAll(".slide"),
-  arrowLeft = document.querySelector("#arrow-left"),
-  arrowRight = document.querySelector("#arrow-right"),
+  arrowLeft = document.querySelector(".previous"),
+  arrowRight = document.querySelector(".next"),
   current = 0;
 
 // Clear all images

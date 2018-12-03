@@ -5,9 +5,9 @@
 {% block home-slider %}
   <!-- Portfolio -->
   <section class="home-slider">
-    
-    <div id="arrow-left" class="arrow"></div>
-
+    <div class="arrow previous">
+            <a></a>
+    </div>
     <div id="slider">
       {% load static from staticfiles %}
     
@@ -29,8 +29,9 @@
       {% endfor %}
 
     </div>
-
-    <div id="arrow-right" class="arrow"></div>
+    <div class="arrow next">
+            <a></a>
+    </div>
     <!-- Run this script at the end to allow the page to fully load first -->
     <script src="{% static 'portfolio/js/main.js' %}"></script>
   </section>
