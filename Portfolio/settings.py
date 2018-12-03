@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', '((iz8&@^y2)4ny$!-x5t1+fygk%s#rk8xm28pcq9rd9)74xizg')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = bool(os.environ.get('DJANGO_DEBUG'))
+DEBUG = bool(os.environ.get('DJANGO_DEBUG', True))
 
 ALLOWED_HOSTS = ['murmuring-springs-65033.herokuapp.com', 
     '127.0.0.1',
@@ -138,22 +138,30 @@ USE_L10N = True
 
 USE_TZ = True
 
-# # Static files (CSS, JavaScript, Images)
-# AWS S3 Configuration
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'PortfolioApp/static'),
-]
+if DEBUG == False:
+    # # Static files (CSS, JavaScript, Images)
+    # AWS S3 Configuration
+    STATICFILES_DIRS = [
+        os.path.join(BASE_DIR, 'PortfolioApp/static'),
+    ]
 
-AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
-AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
-AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_STORAGE_BUCKET_NAME')
-AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+    AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+    AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+    AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_STORAGE_BUCKET_NAME')
+    AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
 
-AWS_S3_OBJECT_PARAMETERS = {
-    'CacheControl': 'max-age=86400',
-}
+    AWS_S3_OBJECT_PARAMETERS = {
+        'CacheControl': 'max-age=86400',
+    }
 
-AWS_LOCATION = 'static'
-STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
-STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-DEFAULT_FILE_STORAGE = 'Portfolio.storage_backends.MediaStorage' 
+    AWS_LOCATION = 'static'
+    STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
+    STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+    DEFAULT_FILE_STORAGE = 'Portfolio.storage_backends.MediaStorage' 
+
+else:
+    STATIC_URL = '/static/'
+    STATIC_ROOT = 'static/'
+    
+    MEDIA_URL = '/media/'
+    MEDIA_ROOT = 'media/'

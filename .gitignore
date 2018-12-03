@@ -11,3 +11,7 @@
 
 # Zip files for deployment
 *.zip
+
+# Ignore images uploaded to the media folder so as to not take up space 
+# in the repo. Also don't need to confuse dev branch with prod
+/media/pictures/*

@@ -229,26 +229,35 @@ h1 a{
     width: 0;
     height: 0;
     border-style: solid;
+    font: bold 6rem Genericons;
+    z-index: 70;
+    text-decoration: none;
+    color: transparent;
 }
-  
-#arrow-left {
-    border-width: 30px 40px 30px 0;
-    border-color: transparent var(--light) transparent transparent;
+.previous a{
+    position: fixed;
+    color: var(--light);
     left: 0;
     margin-left: 30px;
 }
-#arrow-left:hover{
-    border-color: transparent var(--dark) transparent transparent;
+.previous a:hover{
+    color: var(--dark);
+}
+.previous a:before {
+    content: '\f430';
 }
 
-#arrow-right {
-    border-width: 30px 0 30px 40px;
-    border-color: transparent transparent transparent var(--light);
+.next a{
+    position: fixed;
+    color: var(--light);
     right: 0;
     margin-right: 30px;
 }
-#arrow-right:hover{
-    border-color: transparent transparent transparent var(--dark);
+.next a:hover{
+    color: var(--dark);
+}
+.next a:before {
+    content: '\f429';
 }
 
 /* Modal Gallery */
@@ -384,7 +393,7 @@ footer{
 @media(min-width: 1001px){
     .main-nav{
         /* For some reason this doesn't seem to always work.
-        Chalking it up as a know bug that probably won't happen all that often.
+        Chalking it up as a known bug that probably won't happen all that often.
         Ill revisit it another time... */
         background-color: rgba(0,0,0,0);
     }
@@ -398,12 +407,37 @@ footer{
     }
     .main-nav ul{
         display: grid;
-        
     }
 }
 
-@media(max-width: 530px){
+@media(max-width: 775px){
     .title-card{
         grid-template-areas: 'h1' 'h2';
+    }
+
+    /* Reduce the title card font size to it doesn't take up so much screen space */
+    .title-card h1{
+        font-size: smaller;
+    }
+
+    /* Reduce font size in the dropdown menu so the text all fits on one line */
+    .main-nav ul li a{
+        font-size: x-small;
+    }
+
+    /* Reduce the section tag font size to it doesn't take up so much screen space */
+    .slide-content span{
+        font-size: x-small;
+    }
+
+    /* Reduce arrow size and shift them a little closer to the screen edge */
+    .arrow{
+        font: bold 4rem Genericons;
+    }
+    .previous a{
+        margin-left: 5px;
+    }
+    .next a{
+        margin-right: 5px;
     }
 }

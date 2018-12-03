@@ -15,12 +15,16 @@
           <!-- Load the images again for the modal slider. CSS/JS will hide it until
           an image is clicked. -->
           <span class="close">&times;</span>
-          <div id="arrow-left" class="arrow"></div>
+          <div class="arrow previous">
+            <a></a>
+          </div>
           {% for image in img_gal %}
             <img class="slide" src="{{ image.picture.url }}" alt="{{ image.alt_text }}">
           {% endfor %}
           
-          <div id="arrow-right" class="arrow"></div>
+          <div class="arrow next">
+            <a></a>
+          </div>
       </div>
       
   </section>
