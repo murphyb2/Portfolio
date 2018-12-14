@@ -29,7 +29,7 @@ ALLOWED_HOSTS = ['murmuring-springs-65033.herokuapp.com',
     '127.0.0.1',
     'portfolio-env-1.mvar5mq3bd.us-east-1.elasticbeanstalk.com',
     'www.bryan-murphy.com',
-    'bryan-murphy.com'
+    'bryan-murphy.com',
 ]
 
 

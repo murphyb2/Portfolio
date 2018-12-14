@@ -53,7 +53,7 @@ def music(request):
 
     # Filter all the images in the database for only those that are assigned to 
     # the Color Film section. 
-    img_gal = Image.objects.filter(portfolio_section='music')
+    img_gal = Image.objects.filter(portfolio_section='music').order_by('priority')
     
     context = {
         'title': 'Music',

@@ -27,16 +27,23 @@ class Image(models.Model):
     # Section of the site that the uploaded image should live in
     portfolio_section = models.CharField(max_length=100, choices=PORTFOLIO_SECTIONS)
     
+    # Integer for ordering images
+    priority = models.IntegerField()
+
     # Each section of the portfolio will have one image that displays on the home page. 
     # Clicking the image will open up the corresponding portfolio of images. 
     is_showcase_image = models.BooleanField(default=False)
 
-
+    class Meta:
+            ordering: ["priority"]
+            
     def __str__(self):
         return self.alt_text
 
     def is_landscape(self):
         return self.width > self.height
+
+    
 
 class About(models.Model):
     prof_pic = models.ForeignKey(Image, on_delete=models.SET_NULL, null=True)
