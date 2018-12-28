@@ -8,7 +8,7 @@
             only ever be one about page. I just wanted to be able to edit the content from the admin
             page  {% endcomment %}
             <div class="about">
-                {% load static from staticfiles%}
+                {% load static %}
                 {% for about in content %}
                     <img src="{{ about.prof_pic.picture.url }}" alt="{{ about.prof_pic.alt_text }}">
                     <p>{{ about.body }}</p>

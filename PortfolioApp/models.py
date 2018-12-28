@@ -15,7 +15,7 @@ class Image(models.Model):
     ]
 
     # Image absolute url is derived from here (Image.picture.url)
-    picture = models.ImageField(upload_to='pictures/%Y/%m/%d/', height_field='height', width_field='width', null=True)
+    picture = models.ImageField(upload_to='pictures/', height_field='height', width_field='width', null=True)
 
     # Text to be shown when cursor hovers over image
     alt_text = models.CharField(max_length=200, null=True)

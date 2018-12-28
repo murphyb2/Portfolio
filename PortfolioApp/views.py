@@ -22,7 +22,7 @@ def colorFilm(request):
 
     # Filter all the images in the database for only those that are assigned to 
     # the Color Film section. 
-    img_gal = Image.objects.filter(portfolio_section='colorFilm')
+    img_gal = Image.objects.filter(portfolio_section='colorFilm').order_by('priority')
     
     context = {
         'title': 'Color Film',
@@ -37,7 +37,7 @@ def bwFilm(request):
 
     # Filter all the images in the database for only those that are assigned to 
     # the Color Film section. 
-    img_gal = Image.objects.filter(portfolio_section='bwFilm')
+    img_gal = Image.objects.filter(portfolio_section='bwFilm').order_by('priority')
     
     context = {
         'title': 'BW Film',

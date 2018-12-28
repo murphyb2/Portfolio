@@ -5,17 +5,19 @@
 {% block home-slider %}
   <!-- Portfolio -->
   <section class="home-slider">
+    
     <div class="arrow previous">
             <a></a>
     </div>
-    <div id="slider">
-      {% load static from staticfiles %}
-    
+    <div id="slider" >
+      {% load static %}
+      <!-- Spinner to cover images while they load -->
+      <img class="spinner" src="{% static 'portfolio/circular-spinner-blue-transparent.gif' %}">
       {% for image in img_gal %}
       <a href="{% url image.portfolio_section %}">
         <div class="slide slide{{ image.id }} ">
             
-            <style>
+            <style >
               .slide{{ image.id }}{
                 background-image: url({{ image.picture.url }});
               }
@@ -32,7 +34,6 @@
     <div class="arrow next">
             <a></a>
     </div>
-    <!-- Run this script at the end to allow the page to fully load first -->
-    <script src="{% static 'portfolio/js/main.js' %}"></script>
+    
   </section>
 {% endblock %}

@@ -102,6 +102,9 @@ else:
             'USER': 'root',
             'PASSWORD': '',
             'PORT': '',
+            'OPTIONS': {
+                'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+            }
         }
     }
 
@@ -138,12 +141,13 @@ USE_L10N = True
 
 USE_TZ = True
 
+# STATICFILES_DIRS = [
+#         os.path.join(BASE_DIR, 'PortfolioApp/static'),
+#     ]
+
 if DEBUG == False:
     # # Static files (CSS, JavaScript, Images)
     # AWS S3 Configuration
-    STATICFILES_DIRS = [
-        os.path.join(BASE_DIR, 'PortfolioApp/static'),
-    ]
 
     AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
     AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
@@ -161,7 +165,9 @@ if DEBUG == False:
 
 else:
     STATIC_URL = '/static/'
-    STATIC_ROOT = 'static/'
-    
+    # STATIC_ROOT = 'static/'
+    STATIC_ROOT = os.path.join(BASE_DIR, "static")
+
     MEDIA_URL = '/media/'
-    MEDIA_ROOT = 'media/'
+    # MEDIA_ROOT = 'media/'
+    MEDIA_ROOT = os.path.join(BASE_DIR, "media")

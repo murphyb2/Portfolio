@@ -1,3 +1,12 @@
+//When all the images and static files and page elements finish loading, do some stuff
+window.onload = function(){
+  //Get the DOM elements for the loading spinners
+  let spinners = document.querySelectorAll(".spinner");
+  for (let i = 0; i < spinners.length; i++){
+    spinners[i].style.display = "none";
+  }
+
+};
 
 // Handles the image slider on the home page
 

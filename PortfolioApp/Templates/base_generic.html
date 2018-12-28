@@ -19,7 +19,7 @@
     gtag('config', 'UA-128907823-1');
   </script>
 
-  {% load static from staticfiles%}
+  {% load static %}
   <link rel="stylesheet" href="{% static 'portfolio/css/styles.css' %}">
   <link rel="shortcut icon" href="{% static 'portfolio/circled-b.png' %}">
 </head>
@@ -81,6 +81,8 @@
       <div class="footer-text">Bryan Murphy &copy; 2018</div>
     </footer>
     <!-- Let the entire page load then load JS scripts -->
+    <script src="{% static 'portfolio/js/main.js' %}"></script>
     <script src="{% static 'portfolio/js/menuDropdown.js' %}"></script>
+    
 </body>
 </html>

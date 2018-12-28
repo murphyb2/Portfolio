@@ -6,9 +6,13 @@
 {% block content %}
   <!-- Portfolio -->
   <section class="portfolio">
-      {% load static from staticfiles %}
+      {% load static %}
       {% for image in img_gal %}
-        <img id="modal-btn" onclick="openModal({{ forloop.counter }})" src="{{ image.picture.url }}" alt="{{ image.alt_text }}">
+      <!-- Spinner to cover images while they load -->
+        <div class="portfolio-imageContainer">
+          <img id="modal-btn" onclick="openModal({{ forloop.counter }})" src="{{ image.picture.url }}" alt="{{ image.alt_text }}">
+          <img class="spinner" src="{% static 'portfolio/circular-spinner-blue-transparent.gif' %}">
+        </div>
       {% endfor %} 
 
       <div class="modal-window">
@@ -29,8 +33,5 @@
       
   </section>
   
-    
-<!-- Run this script at the end to allow the page to fully load first -->
-<script src="{% static 'portfolio/js/main.js' %}"></script>
 <script src="{% static 'portfolio/js/modal.js' %}"></script>
 {% endblock %}
