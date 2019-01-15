@@ -2,3 +2,4 @@ Things To Add/Fix:
 - Arrows not quite centered vertically on modal slider
 - Ordering for images
 - Only allow one image per section to be showcase image
+- Vertical images throw off margins/spacing 
