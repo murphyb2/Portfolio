@@ -66,7 +66,7 @@
         </div> 
       </nav>
 
-      </header>
+    </header>
     
     <!-- Place the image slider here so it takes up the whole screen -->
     {% block home-slider %}
@@ -78,7 +78,7 @@
 
     <!-- Footer -->
     <footer>
-      <div class="footer-text">Bryan Murphy &copy; 2018</div>
+      <div class="footer-text">Bryan Murphy &copy; {{ currentYear }}</div>
     </footer>
     <!-- Let the entire page load then load JS scripts -->
     <script src="{% static 'portfolio/js/main.js' %}"></script>

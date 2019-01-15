@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', '((iz8&@^y2)4ny$!-x5t1+fygk%s#rk8xm28pcq9rd9)74xizg')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = bool(os.environ.get('DJANGO_DEBUG'))
+DEBUG = bool(os.environ.get('DJANGO_DEBUG', True))
 
 ALLOWED_HOSTS = ['murmuring-springs-65033.herokuapp.com', 
     '127.0.0.1',
@@ -63,7 +63,7 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
             os.path.join(BASE_DIR, 'PortfolioApp/Templates/'),
-            ],
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -92,6 +92,9 @@ if 'RDS_HOSTNAME' in os.environ:
             'PASSWORD': os.environ['RDS_PASSWORD'],
             'HOST': os.environ['RDS_HOSTNAME'],
             'PORT': os.environ['RDS_PORT'],
+            'OPTIONS': {
+                'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+            }
         }
     }
 else:    
@@ -140,10 +143,6 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-
-# STATICFILES_DIRS = [
-#         os.path.join(BASE_DIR, 'PortfolioApp/static'),
-#     ]
 
 if DEBUG == False:
     # # Static files (CSS, JavaScript, Images)
