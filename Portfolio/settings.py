@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', '((iz8&@^y2)4ny$!-x5t1+fygk%s#rk8xm28pcq9rd9)74xizg')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = bool(os.environ.get('DJANGO_DEBUG', True))
+DEBUG = bool(os.environ.get('DJANGO_DEBUG'))
 
 ALLOWED_HOSTS = ['murmuring-springs-65033.herokuapp.com', 
     '127.0.0.1',
