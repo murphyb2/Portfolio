@@ -17,7 +17,7 @@ Namely:
 ## Built With
 
 * [Django](https://www.djangoproject.com/) - The web framework used
-* [HTML/CSS/JS] - Just vanilla!
+* HTML/CSS/JS - Just vanilla!
 
 ## Versioning
 
