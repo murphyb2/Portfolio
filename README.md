@@ -30,4 +30,4 @@ I use [GitHub](https://github.com/murphyb2/Portfolio) for versioning.
 ## Acknowledgments
 
 * [Traversy Media](https://www.youtube.com/channel/UC29ju8bIPH5as8OGnQzwJyA) - Brad's content was immensely helpful in helping me get up to speed with the basics of web development
-* [Mozilla Development Network](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Tutorial_local_library_website) - This tutorial helped tremendously in learning the foundations of Django and creating a full application to deployment 
+* [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Tutorial_local_library_website) - This tutorial helped tremendously in learning the foundations of Django and creating a full application to deployment 
