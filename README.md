@@ -2,61 +2,26 @@
 
 This web app showcases my portfolio of photographs. It implements an administrator interface to upload and display images as well as update the about page. 
 
-## Getting Started
-
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
-
 ### Prerequisites
 
-What things you need to install the software and how to install them
-
-```
-Give examples
-```
-
-### Installing
-
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
-
-```
-Give the example
-```
-
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
+See requirements.txt in this repository.
 
 ## Deployment
 
-Add additional notes about how to deploy this on a live system
+This web app is deployed using Amazon Web Services tools. 
+Namely:
+* Elasic Beanstalk
+* RDS (MySQL)
+* S3
 
 ## Built With
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
-
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
+* [Django](https://www.djangoproject.com/) - The web framework used
+* [HTML/CSS/JS] - Just vanilla!
 
 ## Versioning
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+I use [GitHub](https://github.com/murphyb2/Portfolio) for versioning. 
 
 ## Authors
 
@@ -64,4 +29,5 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 ## Acknowledgments
 
-* Traversy Media
+* [Traversy Media](https://www.youtube.com/channel/UC29ju8bIPH5as8OGnQzwJyA) - Brad's content was immensely helpful in helping me get up to speed with the basics of web development
+* [Mozilla Development Network](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Tutorial_local_library_website) - This tutorial helped tremendously in learning the foundations of Django and creating a full application to deployment 
