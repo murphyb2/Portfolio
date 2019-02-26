@@ -24,7 +24,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('PortfolioApp/', include('PortfolioApp.urls')), #Use include() to add paths from the application
+    path('', include('PortfolioApp.urls')), #Use include() to add paths from the application
 ]
 
 #Add URL maps to redirect the base URL to our application
